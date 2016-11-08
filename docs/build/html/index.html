@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. Getting started &mdash; IMMs PV-Based Microstructure Generator 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="IMMs PV-Based Microstructure Generator 1.0 documentation" href="#" />
+    <link rel="next" title="How to get and compile?" href="setup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="setup.html" title="How to get and compile?"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">IMMs PV-Based Microstructure Generator 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="line-block">
+<div class="line">This documents an OpenMP-parallelized, ccNUMA-aware, two-staged Poisson-Voronoi tessellation microstructure generator,</div>
+<div class="line">which discretizes in 2D and 3D a polycrystal comprising grains and subdividing them into an aggragate of grain-local sub-grains.</div>
+<div class="line">The latter inherit scattered mean-field properties, like orientation, stored elastic energy from their grains.</div>
+<div class="line">The mean-field properties of the grains, in turn, are sampled from a macrotexture and dislocation density distribution.</div>
+<div class="line">With these capabilities the program aims to instantiate simple heterogeneous model microstructures that describe an idealized</div>
+<div class="line">sub-grain structure of a well-recovered high-stacking fault energy cubic alloy.</div>
+<div class="line"><br /></div>
+<div class="line">The source code was developed by Christian Mießen and Markus Kühbach at the Institute for Physical Metallurgy and Metal Physics.</div>
+</div>
+<div class="section" id="getting-started">
+<h1>1. Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">How to get and compile?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html#how-to-get-the-additional-libraries">How to get the additional libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synthesismodel.html">Model Assumptions</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="input">
+<h1>2. Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">Real-world microstructures are fascinating, complex but as such inspire to search for an as close as possible depiction in a computer model.</div>
+<div class="line">At the same time, though, these polycrystalline aggregates realize a specific compromise to a number of possible microstructures which fulfill</div>
+<div class="line">a variety of geometrical, topological constraints to remain a space-filling and to sample specific property distributions. In our generator we</div>
+<div class="line">withstain from introducing to many hard to control parameter an instead focus on studying the evolution of well-characterizable structures</div>
+<div class="line">and to study first in how far evolutionary trends of these can be identified and casted into reliable meta models to preferential grain coarsening.</div>
+<div class="line">Here you find the description of the input parameter.</div>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="parmconfig.html">Basic settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parmconfig.html#default-grain-properties">Default grain properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parmconfig.html#user-defined-macrotexture">User-defined macrotexture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parmconfig.html#plotting-the-result-as-an-ebsd-map">Plotting the result as an EBSD map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parmconfig.html#userdefinedmacrotexture">UserDefinedMacrotexture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parmconfig.html#preferential-orientation">Preferential orientation</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="synthesis">
+<h1>3. Synthesis<a class="headerlink" href="#synthesis" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">As with every multi-threaded program, it is necessary to decide on how many resources to operate.</div>
+<div class="line">For the specific case of OpenMP one simply has to set proper values for the environment variable:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><strong>export OMP_NUM_THREADS=&lt;n&gt;</strong></div>
+<div class="line"><br /></div>
+</div>
+<div class="line">With <em>&lt;n&gt;</em> identifying the number of threads. For instance, running with two threads requires OMP_NUM_THREADS=2</div>
+<div class="line">Thereafter, the simulation is issued by the following command line call:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><strong>MicrostructureGenerator</strong></div>
+<div class="line"><br /></div>
+</div>
+<div class="line">This loads by default the parameters.xml input file, which specifies the (potentially) user-defined and different</div>
+<div class="line">than default name of two additional files from which to interpret orientations and specific settings for orientation scatter.</div>
+</div>
+<div class="line-block">
+<div class="line">Preliminary benchmarking of a structure with one million grains in 2D on a AMD 8350FX eight core utilizing four threads</div>
+<div class="line">took approximately 10 minutes to execute.</div>
+</div>
+</div>
+<div class="section" id="output">
+<h1>4. Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">The generator produces the following output files:</div>
+<div class="line"><br /></div>
+<div class="line">1. <strong>Container.raw</strong></div>
+<div class="line">It encodes the voxelized microstructure by unique sub-grain IDs. The IDs are in the range of [1,N].</div>
+<div class="line">The container encodes implicitly via unsigned int without specifying endianness explicitly.</div>
+<div class="line">For this reason, on RWTH Aachen University cluster&#8217;s Intel machines LittleEndianess is expected.</div>
+<div class="line"><br /></div>
+<div class="line">2. <strong>Microstructure.uds</strong></div>
+<div class="line">It details the properties of each sub-grain. <strong>Both files in combination only describe the structure.</strong></div>
+<div class="line"><br /></div>
+<div class="line">3. <strong>MicrostructureDiagnostics.uds</strong></div>
+<div class="line">It details in addition to the second file the properties of the grains, such that each sub-grain can be traced back to its parent.</div>
+<div class="line"><br /></div>
+<div class="line">4. <strong>Microstructure.IPFZ.png</strong></div>
+<div class="line">The IPFZ colored rendition of a z-slice to the domain.</div>
+<div class="line"><br /></div>
+<div class="line">5. <strong>Parenthood.bin</strong></div>
+<div class="line">A binary file which encodes pairs of Subgrain/ParentGrainID to enable the identification</div>
+<div class="line">of those sub-grains which lay close to grain-grain boundaries during subsequent post-processing steps.</div>
+</div>
+</div>
+<div class="section" id="version-history">
+<h1>Version history<a class="headerlink" href="#version-history" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><strong>v1.0</strong> first version,</div>
+<div class="line-block">
+<div class="line">OpenMP-parallellized, ccNUMA-aware, two-staged Poisson-Voronoi tessellation microstructure generator,</div>
+<div class="line">which discretizes in 2D or 3D a polycrystal comprising grains and subdividing them into an aggragate</div>
+<div class="line">of grain-local sub-grains. The latter inherit scattered mean-field properties, like orientation,</div>
+<div class="line">stored elastic energy from their grains.</div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Papers to this field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html#we-gratefully-acknowledge-the-contributions-from-others">We gratefully acknowledge the contributions from others</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="funding">
+<h1>Funding<a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The authors gratefully acknowledge the support from the DFG in the frame of the Reinhart Koselleck project (GO 335/44-1).</div>
+<div class="line">Furthermore, we acknowledge the support from the FZ Jülich and RWTH Aachen University for granting us computing time</div>
+<div class="line">to develop and verify our methods within the frame of JARAHPC projects.</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="licence">
+<h1>Licence<a class="headerlink" href="#licence" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The project is licenced under the GNU v2.0.</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="questions-contributions">
+<h1>Questions, contributions<a class="headerlink" href="#questions-contributions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Just let us know or contact <em>markus.kuehbach&#64;rwth-aachen.de</em></div>
+</div>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Getting started</a></li>
+<li><a class="reference internal" href="#input">2. Input</a></li>
+<li><a class="reference internal" href="#synthesis">3. Synthesis</a></li>
+<li><a class="reference internal" href="#output">4. Output</a></li>
+<li><a class="reference internal" href="#version-history">Version history</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#funding">Funding</a></li>
+<li><a class="reference internal" href="#licence">Licence</a></li>
+<li><a class="reference internal" href="#questions-contributions">Questions, contributions</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="setup.html"
+                        title="next chapter">How to get and compile?</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="setup.html" title="How to get and compile?"
+             >next</a> |</li>
+        <li><a href="#">IMMs PV-Based Microstructure Generator 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, ChristianMiessen,MarkusKuehbach.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

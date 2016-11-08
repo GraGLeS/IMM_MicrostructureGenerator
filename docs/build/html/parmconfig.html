@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Basic settings &mdash; IMMs PV-Based Microstructure Generator 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="IMMs PV-Based Microstructure Generator 1.0 documentation" href="index.html" />
+    <link rel="next" title="Papers to this field" href="references.html" />
+    <link rel="prev" title="Model Assumptions" href="synthesismodel.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="references.html" title="Papers to this field"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="synthesismodel.html" title="Model Assumptions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">IMMs PV-Based Microstructure Generator 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p>The input parameter are provided in the form of three files.</p>
+<div class="section" id="basic-settings">
+<h1>Basic settings<a class="headerlink" href="#basic-settings" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><strong>NumberOfGrains</strong></div>
+<div class="line-block">
+<div class="line">Specifies how many grains should be synthezised in the RVE. Number is maintained exactly.</div>
+</div>
+<div class="line"><strong>NumberOfSubgrains</strong></div>
+<div class="line-block">
+<div class="line">Specifies how many sub-grains each grain should on average contain.</div>
+</div>
+<div class="line"><strong>NumberOfPointsPerSubGrain</strong></div>
+<div class="line-block">
+<div class="line">Specifies the discretization of the domain such that it translates into a cube with a volume equal to the</div>
+<div class="line">total volume of spheres with diameter NumberOfPointsPerSubGrain with a total of</div>
+<div class="line">NumberOfGrains times (the average) NumberOfSubgrains per grain spheres.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>MicroGenMode</strong></div>
+<div class="line-block">
+<div class="line">So far keep 0, this activates the so-called E_VORONOI mode.</div>
+</div>
+<div class="line"><strong>TextureGEN</strong></div>
+<div class="line-block">
+<div class="line">Set to 1 to use preference orientation. By default it assigns randomly each grain an orientation from the</div>
+<div class="line">discrete list of orientations specified in <strong>ReadFromFilename</strong>. Thereafter, it categorizes grain according to</div>
+<div class="line">which of the texture components detailed in <strong>AdditionalFilename</strong> are least disoriented to the grain orientation.</div>
+<div class="line">If none of these texture components is closer than within 10degrees the grain is considered of random orientation.</div>
+<div class="line">By default this categorization specifies the orientation and stored elastic energy scatter with which the sub-grains</div>
+<div class="line">inherit orientation and stored elastic energy from their parent grain.</div>
+</div>
+</div>
+</div>
+<div class="section" id="default-grain-properties">
+<h1>Default grain properties<a class="headerlink" href="#default-grain-properties" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><strong>StoredElasticEnergyMax</strong></div>
+<div class="line-block">
+<div class="line">Specifies the maximum value of the range of stored elastic energy that is assigned uniformly randomly for grains</div>
+<div class="line">that were characterized to be of random character.</div>
+</div>
+<div class="line"><strong>StoredElasticEnergyMin</strong></div>
+<div class="line-block">
+<div class="line">Specifies the minimum value, respectively. Together, the arithmetic average of the two defines the mean of a normal distribution.</div>
+</div>
+<div class="line"><strong>StoredElasticScatterGrain</strong></div>
+<div class="line-block">
+<div class="line">Specifies the scattering range, and thus the width (sigma) of a normal distribution according to which the dislocation between grains scatters.</div>
+</div>
+<div class="line"><strong>StoredElasticScatterSubgrain</strong></div>
+<div class="line-block">
+<div class="line">Specifies the scattering range, and thus the width (sigma) of this normal distribution according to which dislocation density between the sub-grains inside a specific grain scatters.</div>
+</div>
+<div class="line"><strong>SubgrainOriScatter</strong></div>
+<div class="line-block">
+<div class="line">Specifies the only parameter of a Rayleigh distribution (usually referred to as sigma, B in matlab) according to which the orientations</div>
+<div class="line">of the sub-grains in default grains are sampled such that the disorientation angle of the grain-local sub-grain population is Rayleigh-distributed.</div>
+</div>
+</div>
+</div>
+<div class="section" id="user-defined-macrotexture">
+<h1>User-defined macrotexture<a class="headerlink" href="#user-defined-macrotexture" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><strong>ReadFromFilename</strong></div>
+<div class="line-block">
+<div class="line">Name of a user-defined textfile (see formatting below) which identifies a list of orientations from which to sample the grain&#8217;s orientations.</div>
+</div>
+<div class="line"><strong>AdditionalFilename</strong></div>
+<div class="line-block">
+<div class="line">Name of a user-defined textfile (see formatting below) which identifies texture orientation components into which the grains can be categorized.</div>
+<div class="line">This enables to assign sub-grains specific properties which differ from grain to grain as explained under <strong>TextureGEN</strong>.</div>
+</div>
+<div class="line"><strong>CrystalStructure</strong></div>
+<div class="line-block">
+<div class="line">Currently only fcc implemented. So set to 1.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>PlotDimension</strong></div>
+<div class="line-block">
+<div class="line">Set literally according to explanation.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>ExecuteInParallel</strong></div>
+<div class="line-block">
+<div class="line">Makes sense to have it activated, i.e. set to 1</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-the-result-as-an-ebsd-map">
+<h1>Plotting the result as an EBSD map<a class="headerlink" href="#plotting-the-result-as-an-ebsd-map" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><strong>PlotIPF2DSection</strong></div>
+<div class="line-block">
+<div class="line">Set to 1 to depict the resulting structure. The following four settings defined <strong>relative</strong> dimensions to draw a subset of the domain.</div>
+<div class="line">By default an IPFZ map with ND = [0,0,1] is utilized considering antipodal symmetry.</div>
+</div>
+<div class="line"><strong>PlotWindowXMin</strong></div>
+<div class="line-block">
+<div class="line">Specifies the left boundary of the domain from which to plot. This limitation is necessary as a structure with millions of sub-grains in 2D would require</div>
+<div class="line">quickly to draw a picture of several thousand pixel in each dimensions which is seldom required nor practical to be handled</div>
+</div>
+<div class="line"><strong>PlotWindowXMax</strong></div>
+<div class="line-block">
+<div class="line">Specifies the right boundary.</div>
+</div>
+<div class="line"><strong>PlotWindowYMin</strong></div>
+<div class="line-block">
+<div class="line">Specifies the upper boundary.</div>
+</div>
+<div class="line"><strong>PlotWindowYMax</strong></div>
+<div class="line-block">
+<div class="line">Specifies the lower boundary.</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">By default all plots generate a z = 0 slice.</div>
+</div>
+</div>
+<div class="section" id="userdefinedmacrotexture">
+<h1>UserDefinedMacrotexture<a class="headerlink" href="#userdefinedmacrotexture" title="Permalink to this headline">¶</a></h1>
+<p>The file contains three single-lined headers which are ignored but must not contain more than one newline each, for instance:</p>
+<div class="line-block">
+<div class="line">1.0n</div>
+<div class="line">ID x y z vol q0 q1 q2 q3n</div>
+<div class="line">n</div>
+</div>
+<p>Thereafter as many lines as desired texture components follow with the following format. The last four specify the quaternion representation.
+The data elements are expected to be tab-separated, i.e. by &#8220;t&#8221;.</p>
+<p>integer t double t double t double t double t double t double t double t double</p>
+</div>
+<div class="section" id="preferential-orientation">
+<h1>Preferential orientation<a class="headerlink" href="#preferential-orientation" title="Permalink to this headline">¶</a></h1>
+<p>The file must not contain a header and the format of the textfile is as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>phi1  PHI1    phi2    OriScatter      Stored elastic energy mu        Stored elastic energy sigma     Stored elastic energy internal sigma    SizeScaler      //comments
+</pre></div>
+</div>
+<p>&gt;
+By definition columns become separated by a single tab, i.e. &#8220;t&#8221; and a line ends with &#8220;n&#8221; The <strong>stored elastic energy mu</strong> and <strong>..sigma</strong>, respectively, is interpreted as the mean and the standard deviation (sigma) of a normal distribution according to which the stored elastic energy of the grains which were categorized into the respective preference orientation is set. Usually the in-grain variation of stored elastic energy is less than between grains and hence the scatter for the sub-grains is defined by <strong>..internal sigma</strong>. In effect, the polycrystal can then have a larger stored elastic energy variation per grain but a lower inside. Similarly, the <strong>oriscatter</strong> defines the preference orientation-specific scatter of a Rayleigh-distribution according to which misorientation is spread. The <strong>sizescaler</strong> defines how much larger or smaller the average sub-grain radius should be in grains of this preference orientation in relation to the global expectation volume. For example if a structure with 100 grains and 1000 sub-grains each at a resolution of 15px is synthesized, and certain grains are given a <strong>sizescaler</strong> argument of 0.25, it means that for these grains on average (1/0.25)^3 more sub-grains will be placed in the same unit grain volume. <strong>The sizescaler is required carefully chosen, i.e. by [0.5, 2] as physically a nanostructured deformed grain next to a several micron sub-grain aggregate is very unlikely and furthermore otherwise the discretization of the finest grain will eventually insufficent (&lt;10px) if the average NumberOfGridPoints is not increased!</strong></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basic settings</a></li>
+<li><a class="reference internal" href="#default-grain-properties">Default grain properties</a></li>
+<li><a class="reference internal" href="#user-defined-macrotexture">User-defined macrotexture</a></li>
+<li><a class="reference internal" href="#plotting-the-result-as-an-ebsd-map">Plotting the result as an EBSD map</a></li>
+<li><a class="reference internal" href="#userdefinedmacrotexture">UserDefinedMacrotexture</a></li>
+<li><a class="reference internal" href="#preferential-orientation">Preferential orientation</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="synthesismodel.html"
+                        title="previous chapter">Model Assumptions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="references.html"
+                        title="next chapter">Papers to this field</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/parmconfig.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="references.html" title="Papers to this field"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="synthesismodel.html" title="Model Assumptions"
+             >previous</a> |</li>
+        <li><a href="index.html">IMMs PV-Based Microstructure Generator 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, ChristianMiessen,MarkusKuehbach.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

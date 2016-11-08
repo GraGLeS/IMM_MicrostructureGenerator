@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters>
+
+<NumberOfGrains>10</NumberOfGrains>
+<NumberOfSubgrains>10000</NumberOfSubgrains>
+<NumberOfPointsPerSubGrain>15</NumberOfPointsPerSubGrains>
+
+<MicroGenMode>0</MicroGenMode>
+<TextureGEN>1</TextureGEN>
+<!--<UseOrientationSpace>1</UseOrientationSpace>-->
+
+<StoredElasticEnergyMax>1.0e14</StoredElasticEnergyMax>
+<StoredElasticEnergyMin>1.0e14</StoredElasticEnergyMin>
+<StoredElasticScatterGrain>1.0e13</StoredElasticScatterGrain>
+<StoredElasticScatterSubgrain>1.0e13</StoredElasticScatterSubgrain>
+<SubgrainOriScatter>2.0</SubgrainOriScatter>
+
+<ReadFromFilename>UserDefinedMacrotexture.dat</ReadFromFilename>	
+<AdditionalFilename>PreferenceOrientations.txt</AdditionalFilename>	
+<CrystalStructure>1</CrystalStructure>
+<!-- USAGE:
+   	(	O		E_HCP,	)
+		1		E_FCC, 
+	(	2		E_BCC,		)
+	(	3		E_DEFAULT_STRUCTURE,	)
+-->
+
+<PlotDimension>1</PlotDimension>
+<!-- USAGE:
+   	(	O		E_3D,	)
+		1		E_2D, 
+	(	2		E_DEFAULT_DIMENSION,		)
+-->
+
+<ExecuteInParallel>1</ExecuteInParallel>
+
+<PlotIPF2DSection>1</PlotIPF2DSection>
+<PlotWindowXMin>0.0</PlotWindowXMin>
+<PlotWindowXMax>1.0</PlotWindowXMax>
+<PlotWindowYMin>0.0</PlotWindowYMin>
+<PlotWindowYMax>1.0</PlotWindowYMax>
+<!--IPF plotting renders a plane-parallel section in the NXNY coordinates
+	but, as the 2D domain may become very large a window can be cut
+-->
+</Parameters>

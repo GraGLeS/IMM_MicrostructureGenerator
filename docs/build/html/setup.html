@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to get and compile? &mdash; IMMs PV-Based Microstructure Generator 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="IMMs PV-Based Microstructure Generator 1.0 documentation" href="index.html" />
+    <link rel="next" title="Model Assumptions" href="synthesismodel.html" />
+    <link rel="prev" title="1. Getting started" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="synthesismodel.html" title="Model Assumptions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="1. Getting started"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">IMMs PV-Based Microstructure Generator 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="how-to-get-and-compile">
+<h1>How to get and compile?<a class="headerlink" href="#how-to-get-and-compile" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">The compilation of the program utilizes open-source libraries as well as standard Linux tools.</div>
+</div>
+<ol class="arabic simple">
+<li>Check your Linux installation for a working installation of <strong>cmake</strong>, <strong>make</strong>.</li>
+<li>Check for the successful installation of the following libraries: the <strong>libnuma</strong>, <strong>Eigen</strong>, and <strong>voro++</strong>.</li>
+<li>If interested in improved memory performance, install for instance Jason Evans&#8217; <strong>jemalloc</strong> allocator library.</li>
+<li>Pull the project from the git repository or the source from which it was provided.</li>
+<li>Make sure there is a <strong>src</strong> containing the source code and that it includes a <strong>build</strong> folder, and the <strong>CMakeLists.txt</strong> file.</li>
+<li>Make sure that three input files <strong>parameters.xml</strong>, <strong>PreferenceOrientations.txt</strong>, and <strong>UserDefinedMacrotexture.txt</strong> are within <strong>build</strong>.</li>
+<li>Open a console, dive into the project and into this <strong>build</strong> folder.</li>
+<li>Only once when setting up a new computer type <strong>cmake ..</strong>. This inspects your system and generates a customized makefile.</li>
+<li>Compile the program by typing <strong>make</strong> into the console to utilize this makefile.</li>
+</ol>
+<div class="line-block">
+<div class="line">If in between the compilation process unrecoverable errors occur:</div>
+<div class="line">Delete everything in the build folder except for the default input files and start over at step 8.</div>
+</div>
+</div>
+<div class="section" id="how-to-get-the-additional-libraries">
+<h1>How to get the additional libraries<a class="headerlink" href="#how-to-get-the-additional-libraries" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to get and compile?</a></li>
+<li><a class="reference internal" href="#how-to-get-the-additional-libraries">How to get the additional libraries</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">1. Getting started</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="synthesismodel.html"
+                        title="next chapter">Model Assumptions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/setup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="synthesismodel.html" title="Model Assumptions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="1. Getting started"
+             >previous</a> |</li>
+        <li><a href="index.html">IMMs PV-Based Microstructure Generator 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, ChristianMiessen,MarkusKuehbach.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

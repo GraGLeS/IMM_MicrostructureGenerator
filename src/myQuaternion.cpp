@@ -7,6 +7,12 @@
 #include "myQuaternion.h"
 #include "mymath.h"
 #include "utilities.h"
+
+myQuaternion::myQuaternion(double phi1, double PHI, double phi2){
+	double euler[3]={phi1,PHI,phi2};
+	euler2Quaternion(euler);
+}
+
 myQuaternion::myQuaternion(void) :
 		q0(1), q1(0), q2(0), q3(0), x(FAIL_MYMATH_NUMERIC), y(FAIL_MYMATH_NUMERIC) {
 }

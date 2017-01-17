@@ -43,6 +43,7 @@ private:
 	double y;
 public:
 	myQuaternion(void);
+	myQuaternion(double phi1, double PHI, double phi2);
 	myQuaternion(double q0, double q1, double q2, double q3);
 	myQuaternion(double alpha, double x, double y, double z, bool radiant);
 	~myQuaternion(void);

@@ -8,6 +8,6 @@
 #BSUB -N
 #BSUB -n 32
 #BSUB -a "openmp" 
-#BSUB -P jara0076
+#BSUB -P rwth0157
 no_numa_balancing MicrostructureGenerator parameters.xml
 

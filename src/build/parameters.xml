@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Parameters>
 
-<NumberOfGrains>10</NumberOfGrains>
-<NumberOfSubgrains>10000</NumberOfSubgrains>
+<NumberOfGrains>1000</NumberOfGrains>
+<NumberOfSubgrains>1000</NumberOfSubgrains>
 <NumberOfPointsPerSubGrain>15</NumberOfPointsPerSubGrains>
 
 <MicroGenMode>0</MicroGenMode>

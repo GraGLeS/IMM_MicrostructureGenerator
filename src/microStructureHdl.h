@@ -93,6 +93,7 @@ public:
 
 	void DistributeGrainOriAndSEE();
 	void DistributeSubgrainOrientations();
+	void readTextureFileVPSC();
 	myPreferenceOri findNextPreferenceOrientation(myQuaternion ori);
 	void DistributeSubgrainSEE();
 	void SaveData();

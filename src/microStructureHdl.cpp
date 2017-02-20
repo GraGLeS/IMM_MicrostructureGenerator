@@ -583,7 +583,7 @@ void microStructureHdl::SaveData() {
 	file.open(filename.c_str());
 	int offset = 0;
 	vector<Grains*>::iterator itG;
-	double NrGrains = 0;
+	int NrGrains = 0;
 	if (Settings::NumberOfSubgrains != 0)
 		for (itG = ++m_grains.begin(); itG != m_grains.end(); itG++) {
 			if ((*itG)->m_SubGrains.size() > 1)

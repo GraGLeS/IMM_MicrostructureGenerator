@@ -6,8 +6,8 @@
 #BSUB -W 2:00
 #BSUB -u miessen@imm.rwth-aachen.de
 #BSUB -N
-#BSUB -n 32
-#BSUB -a "openmp" 
+#BSUB -n 128
+#BSUB -a "bcs openmp"
 #BSUB -P rwth0157
 no_numa_balancing MicrostructureGenerator CR_55.xml
 

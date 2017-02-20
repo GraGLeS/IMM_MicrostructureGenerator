@@ -9,5 +9,5 @@
 #BSUB -n 32
 #BSUB -a "openmp" 
 #BSUB -P rwth0157
-no_numa_balancing MicrostructureGenerator parameters.xml
+no_numa_balancing MicrostructureGenerator CR_55.xml
 

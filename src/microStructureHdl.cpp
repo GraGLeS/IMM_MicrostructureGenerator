@@ -456,12 +456,13 @@ void microStructureHdl::DistributeGrainOriAndSEE() {
 		if (Settings::MicroGenMode == E_VORONOI
 				|| Settings::MicroGenMode == E_VPSC) {
 			unsigned int mOrientations = m_OrientationSpace->size();
-			unsigned int randomOri = m_OrientationSpace->size();
-			while (randomOri >= mOrientations) {
-				randomOri = m_seqRND->MersenneTwister()
-						* m_OrientationSpace->size(); //parkMiller()
-			}
-			ori = (*m_OrientationSpace)[randomOri]; //pick randomly from list of predefined orientations
+// 			unsigned int randomOri = m_OrientationSpace->size();
+// 			while (randomOri >= mOrientations) {
+// 				randomOri = m_seqRND->MersenneTwister()
+// 						* m_OrientationSpace->size(); //parkMiller()
+// 			}
+		    ori = (*m_OrientationSpace)[(*it)->get_ID()];
+// 			ori = (*m_OrientationSpace)[randomOri]; //pick randomly from list of predefined orientations
 
 //			cout << "Grain " << (*it)->get_ID()
 //					<< " becomes mapped on UserDefinedOrientation " << randomOri
